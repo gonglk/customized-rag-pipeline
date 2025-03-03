@@ -50,9 +50,10 @@ Below is a quick rundown of each file so you know where everything lives:
 
 10. **`evaluation_results/`** (folder)  
     - Where experiment results land. For each pipeline config you run, it saves a CSV with the metric scores, plus a bar chart if you call the visualization.
---
+
+
 ![High-Level Diagram](./image/langgraph.png "Structure of Agentic RAG")
---
+
 ## 3. Installation and Setup
 To get started:
 
