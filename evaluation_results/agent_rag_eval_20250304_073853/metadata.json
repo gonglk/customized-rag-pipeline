@@ -1,0 +1,9 @@
+{
+    "num_retrievals": 5,
+    "retrieval_type": "hybrid",
+    "embedding_provider": "openai",
+    "embedding_model": "text-embedding-3-large",
+    "llm_provider": "mistralai",
+    "llm_model": "mistral-large-latest",
+    "rag_type": "agent"
+}

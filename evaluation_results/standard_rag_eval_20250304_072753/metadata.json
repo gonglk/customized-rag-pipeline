@@ -1,0 +1,9 @@
+{
+    "num_retrievals": 5,
+    "retrieval_type": "vector",
+    "embedding_provider": "cohere",
+    "embedding_model": "embed-english-light-v3.0",
+    "llm_provider": "openai",
+    "llm_model": "gpt-3.5-turbo",
+    "rag_type": "standard"
+}

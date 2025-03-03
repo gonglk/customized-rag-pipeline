@@ -1,9 +1,9 @@
 # Customized RAG Pipeline and Evaluation
 
-Hey there! This repository shows you how to combine Retrieval-Augmented Generation (RAG) with multiple pipeline configurations ‚Äì both a ‚Äústandard‚Äù approach and a more ‚Äúagentic‚Äù version ‚Äì and then evaluate them using some handy metrics. Below, I‚Äôll walk through each file and how you can run your own experiments or jump into an interactive Q&A session.
+Hey there! This repository shows you how to combine Retrieval-Augmented Generation (RAG) with multiple pipeline configurations ñ both a ìstandardî approach and a more ìagenticî version ñ and then evaluate them using some handy metrics. Below, Iíll walk through each file and how you can run your own experiments or jump into an interactive Q&A session.
 
 ## 1. Project Overview
-The goal here is to enable you to index documents into Pinecone, fetch relevant chunks, and then generate answers via large language models (LLMs) like OpenAI‚Äôs GPT or Mistral. After you see the pipeline in action, you can also get a set of quantitative metrics to see how your pipeline is doing ‚Äì things like how faithful the answers are to the content, whether the retrieval got the right chunks, etc. This approach is especially handy if you need to keep your LLM responses grounded in real data.
+The goal here is to enable you to index documents into Pinecone, fetch relevant chunks, and then generate answers via large language models (LLMs) like OpenAIís GPT or Mistral. After you see the pipeline in action, you can also get a set of quantitative metrics to see how your pipeline is doing ñ things like how faithful the answers are to the content, whether the retrieval got the right chunks, etc. This approach is especially handy if you need to keep your LLM responses grounded in real data.
 
 ## 2. Folder and File Structure
 Below is a quick rundown of each file so you know where everything lives:
@@ -11,7 +11,7 @@ Below is a quick rundown of each file so you know where everything lives:
 1. **`config.py`**  
    - Stores API keys (Pinecone, OpenAI, etc.) and certain default settings (like index names).  
    - Has some example RAG pipeline configurations for you to try out.  
-   - You‚Äôll want to replace any placeholder keys with your own real ones.
+   - Youíll want to replace any placeholder keys with your own real ones.
 
 2. **`template.py`**  
    - Holds the prompt templates that shape what the LLM sees, such as `DEFAULT_TEMPLATE` for standard QA, plus specialized prompts used by the agent pipeline (e.g., for chunk relevance or rewriting queries).
@@ -25,25 +25,25 @@ Below is a quick rundown of each file so you know where everything lives:
 4. **`vectorstore.py`**  
    - Deals with setting up Pinecone indexes.  
    - `initialize_pinecone()` either returns an existing index or creates one (with the dimension and metric matching your embed model).  
-   - If you create a new index, it‚Äôll also load up PDFs from your `data/` folder and chunk them into Pinecone.
+   - If you create a new index, itíll also load up PDFs from your `data/` folder and chunk them into Pinecone.
 
 5. **`evaluation.py`**  
    - Manages the RAG evaluation workflow using the RAGAS library.  
-   - `RAGEvaluator` helps you transform raw QA outputs (like ‚Äúhere‚Äôs the user query and the answer we generated‚Äù) into data that can be scored by various metrics (context recall, relevancy, etc.).  
+   - `RAGEvaluator` helps you transform raw QA outputs (like ìhereís the user query and the answer we generatedî) into data that can be scored by various metrics (context recall, relevancy, etc.).  
    - Great for comparing multiple pipeline runs.
 
 6. **`rag.py`**  
-   - The ‚Äústandard‚Äù RAG pipeline. It sets up a retriever (vector or hybrid search) and a QA chain, typically with `RetrievalQA` from LangChain.  
+   - The ìstandardî RAG pipeline. It sets up a retriever (vector or hybrid search) and a QA chain, typically with `RetrievalQA` from LangChain.  
    - You can specify which LLM you want, which embeddings, chunk size, etc.
 
 7. **`agentic_rag.py`**  
-   - A more advanced approach that uses a graph-based ‚Äúagent‚Äù to refine queries, filter out irrelevant chunks, and even do a Google Serper web search if local documents aren‚Äôt enough. This is especially helpful if your PDF data is incomplete.
+   - A more advanced approach that uses a graph-based ìagentî to refine queries, filter out irrelevant chunks, and even do a Google Serper web search if local documents arenít enough. This is especially helpful if your PDF data is incomplete.
 
 8. **`main.py`**  
-   - The central script that you actually run in your terminal. You‚Äôll get a menu:
+   - The central script that you actually run in your terminal. Youíll get a menu:
      1. Start a Q&A pipeline (interactive).  
      2. Run experiments that measure performance on a test set.  
-   - If you pick Q&A, you‚Äôll get a short wizard for pipeline config, then you can type questions and see answers. If you pick experiments, it‚Äôll go through each config, generate answers for a set of test questions, and compute metrics.
+   - If you pick Q&A, youíll get a short wizard for pipeline config, then you can type questions and see answers. If you pick experiments, itíll go through each config, generate answers for a set of test questions, and compute metrics.
 
 9. **`data/`** (folder)  
    - Put your PDF files here. On first run, the pipeline can chunk and index them in Pinecone so it can retrieve relevant text.  
@@ -54,7 +54,7 @@ Below is a quick rundown of each file so you know where everything lives:
 ## 3. Installation and Setup
 To get started:
 
-1. **Python Version**: Make sure you‚Äôre on Python 3.9 or higher.  
+1. **Python Version**: Make sure youíre on Python 3.9 or higher.  
 2. **Virtual Environment**: Create one with:
    ```bash
    python3 -m venv venv
@@ -68,21 +68,21 @@ To get started:
 
 ## 4. Running the Project
 
-Once you‚Äôre set up, run:
+Once youíre set up, run:
 ```bash
 python main.py
 ```
-### Option 1: ‚ÄúUse RAG pipeline for Q&A‚Äù
+### Option 1: ìUse RAG pipeline for Q&Aî
 
-The code will ask you some questions about how you‚Äôd like to set up your pipeline (e.g., ‚Äúhybrid or vector?‚Äù, ‚Äúopenai or cohere embeddings?‚Äù, ‚Äúwhich LLM model?‚Äù).  
-Then it‚Äôll load your PDF data into Pinecone if needed and create a pipeline.  
-Finally, it waits for you to enter queries. Type something like ‚ÄúWhat services does NRMA provide?‚Äù and it‚Äôll try to retrieve relevant paragraphs and generate an answer. Type ‚Äúexit‚Äù to leave.
+The code will ask you some questions about how youíd like to set up your pipeline (e.g., ìhybrid or vector?î, ìopenai or cohere embeddings?î, ìwhich LLM model?î).  
+Then itíll load your PDF data into Pinecone if needed and create a pipeline.  
+Finally, it waits for you to enter queries. Type something like ìWhat services does NRMA provide?î and itíll try to retrieve relevant paragraphs and generate an answer. Type ìexitî to leave.
 
-### Option 2: ‚ÄúRun experiments to compare RAG pipelines‚Äù
+### Option 2: ìRun experiments to compare RAG pipelinesî
 
 You can either run some default pipeline configurations or build your own single config.  
 The script will automatically go through each pipeline, generate answers for a test set (like `twenty_testset.csv`), compute metrics with `RAGEvaluator`, and save results in a timestamped folder under `evaluation_results/`.  
-You‚Äôll get a CSV with detailed scores per question, plus a quick bar chart to see how the pipeline performed on each metric.
+Youíll get a CSV with detailed scores per question, plus a quick bar chart to see how the pipeline performed on each metric.
 
 ---
 
@@ -104,8 +104,8 @@ You‚Äôll get a CSV with detailed scores per question, plus a quick bar chart to 
 ```
 **Sample Q&A**  
 
-- **User:** ‚ÄúWhat does NRMA stand for?‚Äù  
-- **Pipeline Answer:** ‚ÄúNRMA stands for National Roads and Motorists' Association.‚Äù  
+- **User:** ìWhat does NRMA stand for?î  
+- **Pipeline Answer:** ìNRMA stands for National Roads and Motorists' Association.î  
 
 ---
 
@@ -126,20 +126,23 @@ You‚Äôll get a CSV with detailed scores per question, plus a quick bar chart to 
 --
 ## 6. Evaluation Metrics Explained
 
-This project uses **RAGAS** metrics to gauge how effectively the pipeline retrieves information and generates answers. Here‚Äôs a quick overview of each metric:
+This project uses **RAGAS** metrics to gauge how effectively the pipeline retrieves information and generates answers. Hereís a quick overview of each metric:
 
 - **Context Recall**  
   Ensures the pipeline fetched the essential information. For instance, if the user asked about NRMA, did we actually retrieve a paragraph mentioning NRMA?
 
 - **Context Precision with Reference**  
-  Checks how ‚Äúon point‚Äù the retrieved context is. It specifically looks at whether the documents pulled in are genuinely aligned with what the reference answer needed.
+  Checks how ìon pointî the retrieved context is. It specifically looks at whether the documents pulled in are genuinely aligned with what the reference answer needed.
 
 - **Response Relevancy**  
-  Evaluates if the final LLM output truly addresses the user‚Äôs question. Even with good retrieval, a model can produce an off-topic response.
+  Evaluates if the final LLM output truly addresses the userís question. Even with good retrieval, a model can produce an off-topic response.
 
 - **Faithfulness**  
-  Makes sure the model doesn‚Äôt hallucinate or invent details. A faithful answer is directly supported by the retrieved content.
+  Makes sure the model doesnít hallucinate or invent details. A faithful answer is directly supported by the retrieved content.
 
 - **Factual Correctness**  
   Compares the final answer to a known correct reference. An answer can be contextually relevant but still factually wrong, so this metric ensures real accuracy.
+--
+
+![High-Level Diagram](./image/langgraph.png "Structure of Agentic RAG")
 
