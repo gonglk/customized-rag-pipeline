@@ -1,6 +1,3 @@
-# customized-rag-pipeline
-
-
 # Customized RAG Pipeline and Evaluation
 
 Hey there! This repository shows you how to combine Retrieval-Augmented Generation (RAG) with multiple pipeline configurations – both a “standard” approach and a more “agentic” version – and then evaluate them using some handy metrics. Below, I’ll walk through each file and how you can run your own experiments or jump into an interactive Q&A session.
