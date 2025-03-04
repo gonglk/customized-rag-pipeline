@@ -3,16 +3,16 @@ Configuration constants for Pinecone and external APIs, plus default experiment 
 """
 
 # Pinecone Configuration
-PINECONE_API_KEY: str = "pcsk_4ZS6GE_N12LyarpEwSHPAGSHYfDCzEJGjW2bNKUuyPzCoZ5hxUf2i7SmPigBdAVzs82hzN"
+PINECONE_API_KEY: str = "xx"
 INDEX_NAME: str = "challenge-search"
 PINECONE_CLOUD: str = "aws"
 PINECONE_REGION: str = "us-east-1"
 
 # Services API key 
-SERPER_API_KEY: str = "c358b815d9f2243ac1b2e542dcdf62e76002bc11"
-OPENAI_API_KEY: str = "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"
-MISTRAL_API_KEY: str = "sX56mR9pzHO7NYybCssDZ4EJ0MtB9cWo"
-COHERE_API_KEY: str = "UQI7sXDk6GHhoxQ2w8JYvrzCGBzhZbsG4hl13Mne"
+SERPER_API_KEY: str = "xx"
+OPENAI_API_KEY: str = "xx"
+MISTRAL_API_KEY: str = "xx"
+COHERE_API_KEY: str = "xx"
 
 # Paths
 DATA_DIR: str = "data"
